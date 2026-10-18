@@ -12,6 +12,19 @@ Painel executivo em Tableau sobre a base pública de e-commerce da Olist. O obje
 
 ---
 
+## Etapas do projeto
+
+A análise foi dividida em 4 partes. Cada uma tem uma issue com a pergunta, onde olhar no painel, como explicar e a conclusão.
+
+| Parte | Análise | Pergunta |
+|---|---|---|
+| [1](https://github.com/alvgabi/olist-painel-executivo/issues/1) | Visão Executiva de Vendas | Como estão as vendas e onde a receita está concentrada? |
+| [2](https://github.com/alvgabi/olist-painel-executivo/issues/2) | Logística e Entregas | A Olist entrega no prazo? Onde e quando falha? |
+| [3](https://github.com/alvgabi/olist-painel-executivo/issues/3) | Satisfação do Cliente e Avaliações | O que faz o cliente avaliar mal a compra? |
+| [4](https://github.com/alvgabi/olist-painel-executivo/issues/4) | Clientes, Vendedores e Agentes de IA | O cliente volta? Que problemas os agentes podem resolver? |
+
+---
+
 ## 1. Contexto e pergunta de negócio
 
 A Olist conecta pequenos vendedores aos grandes marketplaces brasileiros. A base contém cerca de **100 mil pedidos** entre 2016 e 2018, com informações de clientes, vendedores, produtos, pagamentos, entregas e avaliações.
