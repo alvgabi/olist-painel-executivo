@@ -3,7 +3,7 @@
 **Projeto de conclusão de curso** – Tecnologia em Análise e Desenvolvimento de Sistemas, **Faculdade Impacta**
 **Disciplina:** Software Product: Analysis
 
-Painel executivo em Tableau sobre a base pública de e-commerce da Olist. A análise é apresentada em **quatro partes**, cada uma respondendo a uma pergunta de negócio diferente.
+Painel executivo em Tableau sobre a base pública de e-commerce da Olist. O projeto é entregue em **quatro etapas** (AC1, AC2, AC3 e Entrega Final), cada uma com uma nova funcionalidade e uma análise diferente.
 
 > **Painel interativo (Tableau Public):** _cole aqui o link depois de publicar_
 >
@@ -13,16 +13,20 @@ Painel executivo em Tableau sobre a base pública de e-commerce da Olist. A aná
 
 ---
 
-## As quatro partes da análise
+## Entregas
 
-Cada parte tem uma issue com a pergunta, onde olhar no painel, a explicação e a conclusão.
+**Integrante:** Gabriela Alves Monteiro (projeto individual)
+**Board do projeto:** _cole aqui o link do GitHub Project_
+**Tipo de projeto:** projeto de dados (BI e análise de dados)
 
-| Parte | Análise | Pergunta |
-|---|---|---|
-| [1](https://github.com/alvgabi/olist-painel-executivo/issues/1) | Visão Executiva de Vendas | Como estão as vendas e onde a receita está concentrada? |
-| [2](https://github.com/alvgabi/olist-painel-executivo/issues/2) | Logística e Entregas | A Olist entrega no prazo? Onde e quando falha? |
-| [3](https://github.com/alvgabi/olist-painel-executivo/issues/3) | Satisfação do Cliente e Avaliações | O que faz o cliente avaliar mal a compra? |
-| [4](https://github.com/alvgabi/olist-painel-executivo/issues/4) | Clientes e Vendedores | O cliente volta a comprar? Como os vendedores influenciam a experiência? |
+O projeto foi dividido em 4 entregas. Cada uma apresenta uma nova funcionalidade, uma análise diferente do painel e um vídeo.
+
+| Entrega | Funcionalidade | Pergunta de negócio | Issue | Vídeo |
+|---|---|---|---|---|
+| **AC1** | Preparação dos dados e painel de Vendas | Como estão as vendas e onde a receita está concentrada? | [#1](https://github.com/alvgabi/olist-painel-executivo/issues/1) | _link_ |
+| **AC2** | Análise de Logística e Entregas, com filtro por clique | A Olist entrega no prazo? Onde e quando falha? | [#2](https://github.com/alvgabi/olist-painel-executivo/issues/2) | _link_ |
+| **AC3** | Análise de Satisfação e dos comentários das avaliações | O que faz o cliente avaliar mal a compra? | [#3](https://github.com/alvgabi/olist-painel-executivo/issues/3) | _link_ |
+| **Entrega Final** | Análise de Clientes e Vendedores e painel integrado | O cliente volta? Como os vendedores influenciam a experiência? | [#4](https://github.com/alvgabi/olist-painel-executivo/issues/4) | _link_ |
 
 ---
 
@@ -103,24 +107,24 @@ Cores: valores em **laranja/vermelho** indicam pontos de atenção.
 - **Campos calculados** reutilizáveis: Receita, Pedidos, Ticket médio, Nota média, % Entregas atrasadas, % Avaliações negativas, Prazo médio, Frete/produto, % Postagem atrasada, Taxa de recompra (LOD por cliente).
 - **Aba extra "Vendedores":** dispersão receita × nota por vendedor.
 
-## 5. Análise em quatro partes
+## 5. Análise por entrega
 
-### Parte 1 – Visão Executiva de Vendas
+### AC1 – Visão Executiva de Vendas
 - A Olist faturou **R$ 13,45 milhões** em produtos com **97.910 pedidos** (jan/17–ago/18), com ticket médio de **R$ 160**.
 - A receita cresceu em 2017, teve o pico na Black Friday (nov/17) e **estagnou em 2018**: a média mensal caiu 9% entre jan–mai e jun–ago.
 - As **10 maiores categorias concentram 62%** da receita.
 
-### Parte 2 – Logística e Entregas
+### AC2 – Logística e Entregas
 - **6,8%** das entregas chegam depois do prazo prometido, com picos de **12,4%** na Black Friday e **19%** em mar/18.
 - **Norte e Nordeste** esperam de 20 a 23 dias, contra 11 no Sudeste; o Nordeste tem o dobro de atraso (12,8%).
 - O prazo prometido é conservador: o cliente vê **23,7 dias**, mas a entrega real leva **12,5**.
 
-### Parte 3 – Satisfação do Cliente e Avaliações
+### AC3 – Satisfação do Cliente e Avaliações
 - Nota média de **4,1**; **12,8%** dos pedidos entregues recebem 1 ou 2 estrelas.
 - O atraso é o principal fator: a nota cai de **4,29** (no prazo) para cerca de **1,7** com mais de 8 dias de atraso.
 - **54%** dos comentários negativos falam de entrega; 15% de produto errado ou incompleto; 12% de defeito; 12% de atendimento.
 
-### Parte 4 – Clientes e Vendedores
+### Entrega Final – Clientes e Vendedores
 - Só cerca de **3%** dos clientes fizeram mais de um pedido.
 - Os **10% maiores vendedores** concentram **67%** da receita.
 - Quando o vendedor posta fora do prazo, **21%** dos pedidos chegam atrasados, contra **5,4%** quando posta no prazo.
@@ -148,6 +152,8 @@ pip install -r requirements.txt
 python src/preparar_dados.py
 # 4. Veja os indicadores e achados no terminal
 python src/analise_exploratoria.py
+# 5. Análise das avaliações e dos comentários (AC3)
+python src/analise_avaliacoes.py
 ```
 
 O painel `dashboard/Olist_Painel_Executivo.twbx` já traz a base embutida; não é preciso rodar os scripts para abri-lo.
@@ -165,7 +171,8 @@ O painel `dashboard/Olist_Painel_Executivo.twbx` já traz a base embutida; não 
 │   └── img/                        # imagem do painel (opcional)
 ├── src/
 │   ├── preparar_dados.py             # limpeza, modelo dimensional e base única
-│   └── analise_exploratoria.py       # indicadores e achados
+│   ├── analise_exploratoria.py       # indicadores e achados
+│   └── analise_avaliacoes.py         # notas e temas dos comentários negativos
 ├── requirements.txt
 └── README.md
 ```
