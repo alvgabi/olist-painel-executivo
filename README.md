@@ -1,8 +1,9 @@
 # Olist | Painel Executivo de E-commerce
 
-Atividade da **Fase 1 do Tech Challenge – Pós-graduação em Agentes de IA (FIAP)**.
+**Projeto de conclusão de curso** – Tecnologia em Análise e Desenvolvimento de Sistemas, **Faculdade Impacta**
+**Disciplina:** Software Product: Analysis
 
-Painel executivo em Tableau sobre a base pública de e-commerce da Olist. O objetivo é entender rapidamente os principais problemas da operação e mapear quais deles podem ser resolvidos com **agentes de IA** nas próximas fases.
+Painel executivo em Tableau sobre a base pública de e-commerce da Olist. A análise é apresentada em **quatro partes**, cada uma respondendo a uma pergunta de negócio diferente.
 
 > **Painel interativo (Tableau Public):** _cole aqui o link depois de publicar_
 >
@@ -12,28 +13,30 @@ Painel executivo em Tableau sobre a base pública de e-commerce da Olist. O obje
 
 ---
 
-## Etapas do projeto
+## As quatro partes da análise
 
-A análise foi dividida em 4 partes. Cada uma tem uma issue com a pergunta, onde olhar no painel, como explicar e a conclusão.
+Cada parte tem uma issue com a pergunta, onde olhar no painel, a explicação e a conclusão.
 
 | Parte | Análise | Pergunta |
 |---|---|---|
 | [1](https://github.com/alvgabi/olist-painel-executivo/issues/1) | Visão Executiva de Vendas | Como estão as vendas e onde a receita está concentrada? |
 | [2](https://github.com/alvgabi/olist-painel-executivo/issues/2) | Logística e Entregas | A Olist entrega no prazo? Onde e quando falha? |
 | [3](https://github.com/alvgabi/olist-painel-executivo/issues/3) | Satisfação do Cliente e Avaliações | O que faz o cliente avaliar mal a compra? |
-| [4](https://github.com/alvgabi/olist-painel-executivo/issues/4) | Clientes, Vendedores e Agentes de IA | O cliente volta? Que problemas os agentes podem resolver? |
+| [4](https://github.com/alvgabi/olist-painel-executivo/issues/4) | Clientes e Vendedores | O cliente volta a comprar? Como os vendedores influenciam a experiência? |
 
 ---
 
-## 1. Contexto e pergunta de negócio
+## 1. Contexto
 
 A Olist conecta pequenos vendedores aos grandes marketplaces brasileiros. A base contém cerca de **100 mil pedidos** entre 2016 e 2018, com informações de clientes, vendedores, produtos, pagamentos, entregas e avaliações.
 
-**Pergunta:** onde a operação perde valor (satisfação, recompra, receita) e quais desses pontos são bons candidatos para automação com agentes de IA?
+## 2. Objetivo e pergunta de negócio
 
-O painel é um **rascunho exploratório**, focado em diagnóstico e não em produto final.
+Construir um painel executivo que permita a um gestor entender rapidamente o desempenho da operação.
 
-## 2. Dados
+**Pergunta central:** onde a operação perde valor em receita, satisfação e recompra, e o que explica essas perdas?
+
+## 3. Dados
 
 - **Fonte:** [Brazilian E-Commerce Public Dataset by Olist (Kaggle)](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce), licença CC BY-NC-SA 4.0.
 - **Período analisado no painel:** jan/2017 a ago/2018. Os meses de 2016 e de set–out/2018 estão incompletos e foram filtrados por padrão.
@@ -66,7 +69,7 @@ erDiagram
 
 Para o Tableau, as tabelas foram unidas em uma **base única no grão de item** (`olist_base.csv`, ~113 mil linhas). As métricas de pedido (atraso, nota, prazo, valor pago) ficam **apenas na primeira linha de cada pedido**, para que médias e somas não contem o mesmo pedido mais de uma vez. O dicionário completo está em [`docs/dicionario_de_dados.md`](docs/dicionario_de_dados.md).
 
-## 3. O painel
+## 4. O painel
 
 ### Indicadores (linha superior)
 
@@ -100,32 +103,42 @@ Cores: valores em **laranja/vermelho** indicam pontos de atenção.
 - **Campos calculados** reutilizáveis: Receita, Pedidos, Ticket médio, Nota média, % Entregas atrasadas, % Avaliações negativas, Prazo médio, Frete/produto, % Postagem atrasada, Taxa de recompra (LOD por cliente).
 - **Aba extra "Vendedores":** dispersão receita × nota por vendedor.
 
-## 4. Principais achados
+## 5. Análise em quatro partes
 
-1. **Atraso derruba a satisfação.** Nota média de 4,29 quando o pedido chega no prazo, contra 2,1 com 4 a 7 dias de atraso e 1,7 acima de 8 dias.
-2. **A operação não aguenta os picos.** O atraso médio é 6,8%, mas chegou a 12,4% na Black Friday de 2017 e a 19% em março de 2018, os meses com as piores notas.
-3. **Norte e Nordeste são mal atendidos.** Prazo médio de 20 a 23 dias, contra 11 no Sudeste. O Nordeste tem o dobro de atraso (12,8%). 60% dos vendedores estão em SP.
-4. **Parte do atraso nasce no vendedor.** Quando o vendedor posta fora do prazo, 21% dos pedidos chegam atrasados, contra 5,4% quando posta no prazo.
-5. **Quase ninguém volta a comprar.** Só cerca de 3% dos clientes fizeram mais de um pedido.
-6. **O prazo prometido é conservador.** O cliente vê, em média, 23,7 dias; a entrega real leva 12,5.
-7. **Categorias com nota baixa.** Cama, mesa e banho é a 3ª em receita e a que mais gera avaliações negativas em número absoluto.
+### Parte 1 – Visão Executiva de Vendas
+- A Olist faturou **R$ 13,45 milhões** em produtos com **97.910 pedidos** (jan/17–ago/18), com ticket médio de **R$ 160**.
+- A receita cresceu em 2017, teve o pico na Black Friday (nov/17) e **estagnou em 2018**: a média mensal caiu 9% entre jan–mai e jun–ago.
+- As **10 maiores categorias concentram 62%** da receita.
+
+### Parte 2 – Logística e Entregas
+- **6,8%** das entregas chegam depois do prazo prometido, com picos de **12,4%** na Black Friday e **19%** em mar/18.
+- **Norte e Nordeste** esperam de 20 a 23 dias, contra 11 no Sudeste; o Nordeste tem o dobro de atraso (12,8%).
+- O prazo prometido é conservador: o cliente vê **23,7 dias**, mas a entrega real leva **12,5**.
+
+### Parte 3 – Satisfação do Cliente e Avaliações
+- Nota média de **4,1**; **12,8%** dos pedidos entregues recebem 1 ou 2 estrelas.
+- O atraso é o principal fator: a nota cai de **4,29** (no prazo) para cerca de **1,7** com mais de 8 dias de atraso.
+- **54%** dos comentários negativos falam de entrega; 15% de produto errado ou incompleto; 12% de defeito; 12% de atendimento.
+
+### Parte 4 – Clientes e Vendedores
+- Só cerca de **3%** dos clientes fizeram mais de um pedido.
+- Os **10% maiores vendedores** concentram **67%** da receita.
+- Quando o vendedor posta fora do prazo, **21%** dos pedidos chegam atrasados, contra **5,4%** quando posta no prazo.
 
 > Os achados mostram correlações observadas na base histórica, não relações de causa comprovadas.
 
-## 5. Oportunidades para agentes de IA
+## 6. Conclusão e recomendações
 
-| Problema | Agente proposto | O que ele faria |
-|---|---|---|
-| Atraso derruba a nota | **Monitoramento de pedidos em risco** | Cruza prazo de postagem, rota e histórico; avisa o cliente antes do atraso e sugere compensação |
-| Picos sazonais | **Planejamento de capacidade** | Prevê demanda por semana e alerta a operação sobre gargalos logísticos |
-| Norte/Nordeste | **Otimização logística** | Recalcula prazos por rota e sugere vendedores/transportadoras regionais |
-| Vendedor posta atrasado | **SLA do vendedor** | Cobra o vendedor, escala casos recorrentes e mantém um ranking de desempenho |
-| Avaliações negativas | **Análise de avaliações** | Lê os comentários, classifica a causa (atraso, produto, embalagem) e abre a tratativa |
-| Recompra de 3% | **Pós-venda / CRM** | Envia mensagens personalizadas após a entrega para clientes satisfeitos, com recomendação e cupom |
+As quatro partes formam uma cadeia: **a entrega atrasa → a nota cai → o cliente não volta → a receita estagna.**
 
-**Prioridade sugerida:** começar pelo agente de **monitoramento de pedidos em risco**, porque ele atua na causa (a entrega) que se propaga para avaliação e recompra.
+Recomendações para a operação:
+1. **Planejar a capacidade logística** para datas sazonais, como a Black Friday.
+2. **Ajustar o prazo prometido por região**, usando o histórico real de entregas.
+3. **Acompanhar o prazo de postagem dos vendedores**, com metas e alertas para quem atrasa com frequência.
+4. **Criar ações de pós-venda** para incentivar a segunda compra de clientes satisfeitos.
+5. **Revisar as categorias com nota baixa**, como Cama, mesa e banho.
 
-## 6. Como reproduzir
+## 7. Como reproduzir
 
 ```bash
 # 1. Baixe os CSVs do Kaggle e coloque em data/raw/
@@ -139,7 +152,7 @@ python src/analise_exploratoria.py
 
 O painel `dashboard/Olist_Painel_Executivo.twbx` já traz a base embutida; não é preciso rodar os scripts para abri-lo.
 
-## 7. Estrutura do repositório
+## 8. Estrutura do repositório
 
 ```
 ├── dashboard/
@@ -157,7 +170,7 @@ O painel `dashboard/Olist_Painel_Executivo.twbx` já traz a base embutida; não 
 └── README.md
 ```
 
-## 8. Limitações
+## 9. Limitações
 
 - Base histórica (2016–2018); os números não representam a Olist atual.
 - Na base única, quando o painel é filtrado por categoria, as métricas de pedido consideram a categoria do primeiro item do pedido. Isso só afeta pedidos com itens de categorias diferentes, que são poucos.
@@ -165,4 +178,5 @@ O painel `dashboard/Olist_Painel_Executivo.twbx` já traz a base embutida; não 
 
 ---
 
-**Autora:** Gabriela Alves Monteiro · Pós-graduação em Agentes de IA – FIAP
+**Autora:** Gabriela Alves Monteiro
+Tecnologia em Análise e Desenvolvimento de Sistemas – Faculdade Impacta · Disciplina Software Product: Analysis
