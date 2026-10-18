@@ -16,7 +16,7 @@ Painel executivo em Tableau sobre a base pública de e-commerce da Olist. O proj
 ## Entregas
 
 **Integrante:** Gabriela Alves Monteiro (projeto individual)
-**Board do projeto:** _cole aqui o link do GitHub Project_
+**Board do projeto:** https://github.com/users/alvgabi/projects/2
 **Tipo de projeto:** projeto de dados (BI e análise de dados)
 
 O projeto foi dividido em 4 entregas. Cada uma apresenta uma nova funcionalidade, uma análise diferente do painel e um vídeo.
