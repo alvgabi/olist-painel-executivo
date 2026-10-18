@@ -23,10 +23,10 @@ O projeto foi dividido em 4 entregas. Cada uma apresenta uma nova funcionalidade
 
 | Entrega | Funcionalidade | Pergunta de negócio | Issue | Vídeo |
 |---|---|---|---|---|
-| **AC1** | Preparação dos dados e painel de Vendas | Como estão as vendas e onde a receita está concentrada? | [#1](https://github.com/alvgabi/olist-painel-executivo/issues/1) | _link_ |
-| **AC2** | Análise de Logística e Entregas, com filtro por clique | A Olist entrega no prazo? Onde e quando falha? | [#2](https://github.com/alvgabi/olist-painel-executivo/issues/2) | _link_ |
-| **AC3** | Análise de Satisfação e dos comentários das avaliações | O que faz o cliente avaliar mal a compra? | [#3](https://github.com/alvgabi/olist-painel-executivo/issues/3) | _link_ |
-| **Entrega Final** | Análise de Clientes e Vendedores e painel integrado | O cliente volta? Como os vendedores influenciam a experiência? | [#4](https://github.com/alvgabi/olist-painel-executivo/issues/4) | _link_ |
+| **AC1** | Preparação dos dados e painel de Vendas | Como estão as vendas e onde a receita está concentrada? | [#5](https://github.com/alvgabi/olist-painel-executivo/issues/5) | _link_ |
+| **AC2** | Análise de Logística e Entregas, com filtro por clique | A Olist entrega no prazo? Onde e quando falha? | [#6](https://github.com/alvgabi/olist-painel-executivo/issues/6) | _link_ |
+| **AC3** | Análise de Satisfação e dos comentários das avaliações | O que faz o cliente avaliar mal a compra? | [#7](https://github.com/alvgabi/olist-painel-executivo/issues/7) | _link_ |
+| **Entrega Final** | Análise de Clientes e Vendedores e painel integrado | O cliente volta? Como os vendedores influenciam a experiência? | [#8](https://github.com/alvgabi/olist-painel-executivo/issues/8) | _link_ |
 
 ---
 
