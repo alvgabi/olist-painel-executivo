@@ -5,7 +5,7 @@
 
 Painel executivo em Tableau sobre a base pública de e-commerce da Olist. O projeto é entregue em **quatro etapas** (AC1, AC2, AC3 e Entrega Final), cada uma com uma nova funcionalidade e uma análise diferente.
 
-> **Painel interativo (Tableau Public):** _cole aqui o link depois de publicar_
+> **Painel interativo:** [`dashboard/Olist_Painel_Executivo.twbx`](dashboard/Olist_Painel_Executivo.twbx). Baixe o arquivo e abra no Tableau Desktop (a versão gratuita funciona). A demonstração do painel está nos vídeos de cada entrega.
 >
 > **Arquivo do painel:** [`dashboard/Olist_Painel_Executivo.twbx`](dashboard/Olist_Painel_Executivo.twbx) (abre no Tableau Desktop ou no Tableau Reader, com os dados embutidos)
 
