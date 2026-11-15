@@ -25,7 +25,7 @@ O projeto foi dividido em 4 entregas. Cada uma apresenta uma nova funcionalidade
 |---|---|---|---|---|
 | **AC1** | Preparação dos dados e painel de Vendas | Como estão as vendas e onde a receita está concentrada? | [#5](https://github.com/alvgabi/olist-painel-executivo/issues/5) | https://www.youtube.com/watch?v=_VPN8wGrGSg |
 | **AC2** | Análise de Logística e Entregas, com filtro por clique | A Olist entrega no prazo? Onde e quando falha? | [#6](https://github.com/alvgabi/olist-painel-executivo/issues/6) | https://www.youtube.com/watch?v=PezzGA0Ntbo |
-| **AC3** | Análise de Satisfação e dos comentários das avaliações | O que faz o cliente avaliar mal a compra? | [#7](https://github.com/alvgabi/olist-painel-executivo/issues/7) | _link_ |
+| **AC3** | Aba "Satisfação (AC3)" com parâmetro de nota de corte (campo calculado), distribuição das notas e temas dos comentários | O que faz o cliente avaliar mal a compra? | [#7](https://github.com/alvgabi/olist-painel-executivo/issues/7) | _link_ |
 | **Entrega Final** | Análise de Clientes e Vendedores e painel integrado | O cliente volta? Como os vendedores influenciam a experiência? | [#8](https://github.com/alvgabi/olist-painel-executivo/issues/8) | _link_ |
 
 ---
@@ -97,12 +97,14 @@ Cores: valores em **laranja/vermelho** indicam pontos de atenção.
 | Desempenho por região | Prazo médio de entrega por região | Vermelho = atraso acima de 10% |
 | % de entregas atrasadas por mês | Tendência de atraso; a nota do mês aparece no tooltip | Linha vermelha |
 | Estados | % de entregas atrasadas por UF | Vermelho ≥ 12%, laranja 8–12% |
-| Top 10 categorias | Receita por categoria | Laranja = nota média abaixo de 4,05 |
+| Top 10 categorias | Receita por categoria | Laranja = nota média abaixo da nota de corte (padrão 4,05; ajustável na aba Satisfação) |
+| Distribuição das notas (AC3) | Pedidos por número de estrelas, de 1 a 5 | Vermelho = 1 e 2 estrelas, laranja = 3, azul = 4 e 5 |
 
 ### Funcionalidades
 
 - **Filtros globais** (aplicam-se a todos os gráficos): período da compra, região, UF, categoria, status do pedido e meio de pagamento. Status já vem sem "Cancelado" e "Indisponível".
 - **Filtro por clique:** clicar em um estado, uma categoria ou uma região filtra o painel inteiro; clicar de novo limpa a seleção.
+- **Parâmetro "Nota de corte" (AC3):** na aba **Satisfação (AC3)**, o gestor escolhe a nota de corte (de 3,5 a 4,5) e o campo calculado "Alerta de nota" recalcula quais categorias do Top 10 entram em alerta (laranja). O valor padrão é 4,05.
 - **Tooltips** com métricas extras (pedidos, prazo, nota, frete/produto).
 - **Campos calculados** reutilizáveis: Receita, Pedidos, Ticket médio, Nota média, % Entregas atrasadas, % Avaliações negativas, Prazo médio, Frete/produto, % Postagem atrasada, Taxa de recompra (LOD por cliente).
 - **Aba extra "Vendedores":** dispersão receita × nota por vendedor.
@@ -122,7 +124,8 @@ Cores: valores em **laranja/vermelho** indicam pontos de atenção.
 ### AC3 – Satisfação do Cliente e Avaliações
 - Nota média de **4,1**; **12,8%** dos pedidos entregues recebem 1 ou 2 estrelas.
 - O atraso é o principal fator: a nota cai de **4,29** (no prazo) para cerca de **1,7** com mais de 8 dias de atraso.
-- **54%** dos comentários negativos falam de entrega; 15% de produto errado ou incompleto; 12% de defeito; 12% de atendimento.
+- **54%** dos comentários negativos falam de entrega; 15% de produto errado ou incompleto; 12% de defeito; 12% de atendimento. Os temas aparecem no quadro da aba Satisfação.
+- **Nova funcionalidade da AC3:** a aba **Satisfação (AC3)** reúne a nota média, a distribuição das notas, a nota por faixa de atraso e as categorias em alerta, controladas pelo parâmetro **Nota de corte**. Ao mudar de 4,05 para 4,15, por exemplo, "Esporte lazer" passa a entrar em alerta.
 
 ### Entrega Final – Clientes e Vendedores
 - Só cerca de **3%** dos clientes fizeram mais de um pedido.
