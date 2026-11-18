@@ -26,7 +26,7 @@ O projeto foi dividido em 4 entregas. Cada uma apresenta uma nova funcionalidade
 | **AC1** | Preparação dos dados e painel de Vendas | Como estão as vendas e onde a receita está concentrada? | [#5](https://github.com/alvgabi/olist-painel-executivo/issues/5) | https://www.youtube.com/watch?v=_VPN8wGrGSg |
 | **AC2** | Análise de Logística e Entregas, com filtro por clique | A Olist entrega no prazo? Onde e quando falha? | [#6](https://github.com/alvgabi/olist-painel-executivo/issues/6) | https://www.youtube.com/watch?v=PezzGA0Ntbo |
 | **AC3** | Aba "Satisfação (AC3)" com parâmetro de nota de corte (campo calculado), distribuição das notas e temas dos comentários | O que faz o cliente avaliar mal a compra? | [#7](https://github.com/alvgabi/olist-painel-executivo/issues/7) | https://youtu.be/G5zCy8i4SAQ |
-| **Entrega Final** | Análise de Clientes e Vendedores e painel integrado | O cliente volta? Como os vendedores influenciam a experiência? | [#8](https://github.com/alvgabi/olist-painel-executivo/issues/8) | _link_ |
+| **Entrega Final** | Aba "Clientes e Vendedores (Final)" (recompra com campo calculado LOD e análise de vendedores) e aba "Painel Integrado" com as quatro análises | O cliente volta? Como os vendedores influenciam a experiência? | [#8](https://github.com/alvgabi/olist-painel-executivo/issues/8) | _link_ |
 
 ---
 
@@ -99,6 +99,9 @@ Cores: valores em **laranja/vermelho** indicam pontos de atenção.
 | Estados | % de entregas atrasadas por UF | Vermelho ≥ 12%, laranja 8–12% |
 | Top 10 categorias | Receita por categoria | Laranja = nota média abaixo da nota de corte (padrão 4,05; ajustável na aba Satisfação) |
 | Distribuição das notas (AC3) | Pedidos por número de estrelas, de 1 a 5 | Vermelho = 1 e 2 estrelas, laranja = 3, azul = 4 e 5 |
+| Taxa de recompra por região (Final) | % de clientes com mais de um pedido, por região | Clique para filtrar o painel |
+| Postagem do vendedor e atraso (Final) | % de entregas atrasadas conforme o vendedor postou no prazo ou fora do prazo | Azul = no prazo, vermelho = fora do prazo |
+| Vendedores (Final) | Receita × nota média de cada vendedor | Cor = % de postagem fora do prazo |
 
 ### Funcionalidades
 
@@ -107,7 +110,8 @@ Cores: valores em **laranja/vermelho** indicam pontos de atenção.
 - **Parâmetro "Nota de corte" (AC3):** na aba **Satisfação (AC3)**, o gestor escolhe a nota de corte (de 3,5 a 4,5) e o campo calculado "Alerta de nota" recalcula quais categorias do Top 10 entram em alerta (laranja). O valor padrão é 4,05.
 - **Tooltips** com métricas extras (pedidos, prazo, nota, frete/produto).
 - **Campos calculados** reutilizáveis: Receita, Pedidos, Ticket médio, Nota média, % Entregas atrasadas, % Avaliações negativas, Prazo médio, Frete/produto, % Postagem atrasada, Taxa de recompra (LOD por cliente).
-- **Aba extra "Vendedores":** dispersão receita × nota por vendedor.
+- **Aba "Clientes e Vendedores (Final)":** taxa de recompra (calculada com uma expressão LOD `FIXED` por cliente), recompra por região, efeito da postagem do vendedor no atraso e dispersão receita × nota por vendedor.
+- **Aba "Painel Integrado" (Final):** reúne vendas, logística, satisfação, clientes e vendedores em uma única tela. Os filtros globais e o filtro por clique (estado, categoria e região) valem para todos os gráficos.
 
 ## 5. Análise por entrega
 
@@ -128,9 +132,10 @@ Cores: valores em **laranja/vermelho** indicam pontos de atenção.
 - **Nova funcionalidade da AC3:** a aba **Satisfação (AC3)** reúne a nota média, a distribuição das notas, a nota por faixa de atraso e as categorias em alerta, controladas pelo parâmetro **Nota de corte**. Ao mudar de 4,05 para 4,15, por exemplo, "Esporte lazer" passa a entrar em alerta.
 
 ### Entrega Final – Clientes e Vendedores
-- Só cerca de **3%** dos clientes fizeram mais de um pedido.
+- Só cerca de **3%** dos clientes fizeram mais de um pedido. A recompra é maior no Sudeste (3,3%) e menor no Nordeste (2,6%), a região com mais atraso.
 - Os **10% maiores vendedores** concentram **67%** da receita.
-- Quando o vendedor posta fora do prazo, **21%** dos pedidos chegam atrasados, contra **5,4%** quando posta no prazo.
+- **8,9%** dos pedidos são postados pelo vendedor depois do prazo. Nesses casos, **21%** chegam atrasados ao cliente, contra **5,4%** quando a postagem é no prazo.
+- **Nova funcionalidade da Entrega Final:** a aba **Clientes e Vendedores (Final)** traz a taxa de recompra por cliente (campo calculado LOD) e a análise de vendedores. A aba **Painel Integrado** junta as quatro análises, com filtros globais e filtro por clique.
 
 > Os achados mostram correlações observadas na base histórica, não relações de causa comprovadas.
 
