@@ -25,7 +25,7 @@ O projeto foi dividido em 4 entregas. Cada uma apresenta uma nova funcionalidade
 |---|---|---|---|---|
 | **AC1** | Preparação dos dados e painel de Vendas | Como estão as vendas e onde a receita está concentrada? | [#5](https://github.com/alvgabi/olist-painel-executivo/issues/5) | https://www.youtube.com/watch?v=_VPN8wGrGSg |
 | **AC2** | Análise de Logística e Entregas, com filtro por clique | A Olist entrega no prazo? Onde e quando falha? | [#6](https://github.com/alvgabi/olist-painel-executivo/issues/6) | https://www.youtube.com/watch?v=PezzGA0Ntbo |
-| **AC3** | Aba "Satisfação (AC3)" com parâmetro de nota de corte (campo calculado), distribuição das notas e temas dos comentários | O que faz o cliente avaliar mal a compra? | [#7](https://github.com/alvgabi/olist-painel-executivo/issues/7) | _link_ |
+| **AC3** | Aba "Satisfação (AC3)" com parâmetro de nota de corte (campo calculado), distribuição das notas e temas dos comentários | O que faz o cliente avaliar mal a compra? | [#7](https://github.com/alvgabi/olist-painel-executivo/issues/7) | https://youtu.be/G5zCy8i4SAQ |
 | **Entrega Final** | Análise de Clientes e Vendedores e painel integrado | O cliente volta? Como os vendedores influenciam a experiência? | [#8](https://github.com/alvgabi/olist-painel-executivo/issues/8) | _link_ |
 
 ---
